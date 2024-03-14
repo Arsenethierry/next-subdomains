@@ -5,5 +5,5 @@ export default function Users() {
 
   const hostname = headerList.get("host");
 
-  return <h1>Hello from subdomain {hostname}</h1>;
+  return <h1>Hello from subdomain {hostname} <br /> real domain is: {process.env.DOMAIN}</h1>;
 }
