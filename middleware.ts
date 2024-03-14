@@ -15,14 +15,14 @@ export const config = {
 
 export default async function middleware(req: NextRequest) {
   const url = req.nextUrl;
-
+console.log(process.env.DOMAIN);
   const hostname = req.headers.get("host")!;
 
   const path = url.pathname;
 
   let subdomain = hostname.split(".")[0];
 
-  subdomain = subdomain.replace("3000-arsenethier-nextsubdoma-xn31dfcwy4y.ws-eu110.gitpod.io", "");
+  subdomain = subdomain.replace(`${process.env.DOMAIN}`, "");
 
   // handle no subdomain or www with base path
   if (subdomain === "www" || subdomain === "") {
